@@ -1,0 +1,27 @@
+﻿app/(tabs)/index.tsx(123,10): error TS2304: Cannot find name 'Pressable'.
+app/(tabs)/index.tsx(129,11): error TS2304: Cannot find name 'Pressable'.
+app/(tabs)/profile.tsx(89,19): error TS2304: Cannot find name 'Radius'.
+app/(tabs)/profile.tsx(95,19): error TS2304: Cannot find name 'Radius'.
+app/(tabs)/stats.tsx(124,19): error TS2304: Cannot find name 'Radius'.
+app/_layout.tsx(13,36): error TS2322: Type '{ style: "light"; backgroundColor: "#09090B"; }' is not assignable to type 'IntrinsicAttributes & StatusBarProps'.
+  Property 'backgroundColor' does not exist on type 'IntrinsicAttributes & StatusBarProps'.
+src/components/history/MonthCalendar.tsx(31,13): error TS2322: Type '"#FFFFFF"' is not assignable to type '"#F4F4F5"'.
+src/components/history/MonthCalendar.tsx(37,13): error TS2322: Type '"rgba(113,113,122,0.3)"' is not assignable to type '"#F4F4F5"'.
+src/components/home/StreakCard.tsx(29,34): error TS2322: Type '"#8B5CF6"' is not assignable to type '"rgba(255,255,255,0.06)"'.
+src/components/home/StreakCard.tsx(30,35): error TS2322: Type '"#FBBF24"' is not assignable to type '"rgba(255,255,255,0.06)"'.
+src/components/home/StreakCard.tsx(31,36): error TS2322: Type '"rgba(139,92,246,0.15)"' is not assignable to type '"rgba(255,255,255,0.06)"'.
+src/components/layout/CustomTabBar.tsx(3,35): error TS2307: Cannot find module '@react-navigation/bottom-tabs' or its corresponding type declarations.
+src/components/layout/CustomTabBar.tsx(21,26): error TS7006: Parameter 'route' implicitly has an 'any' type.
+src/components/layout/CustomTabBar.tsx(21,33): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/layout/CustomTabBar.tsx(91,11): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.
+src/components/layout/SafeScreen.tsx(16,32): error TS2322: Type '{ style: "light"; backgroundColor: "#09090B"; }' is not assignable to type 'IntrinsicAttributes & StatusBarProps'.
+  Property 'backgroundColor' does not exist on type 'IntrinsicAttributes & StatusBarProps'.
+src/components/modals/AddHabitSheet.tsx(143,31): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.
+src/components/modals/AddHabitSheet.tsx(206,19): error TS2551: Property 'absoluteFillObject' does not exist on type 'typeof StyleSheet'. Did you mean 'absoluteFill'?
+src/components/modals/AddHabitSheet.tsx(210,19): error TS2551: Property 'absoluteFillObject' does not exist on type 'typeof StyleSheet'. Did you mean 'absoluteFill'?
+src/components/profile/BadgeGrid.tsx(21,15): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.
+src/components/profile/SettingsRow.tsx(28,21): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.
+src/components/shared/HabitIcon.tsx(20,9): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.
+src/components/stats/DailyActivityChart.tsx(23,41): error TS2322: Type '"rgba(139,92,246,0.18)"' is not assignable to type '"#8B5CF6"'.
+src/components/stats/DailyActivityChart.tsx(24,40): error TS2322: Type '"#FBBF24"' is not assignable to type '"#8B5CF6"'.
+src/components/stats/HabitBreakdownRow.tsx(18,19): error TS2322: Type 'string' is not assignable to type 'SFSymbols7_0 | { ios?: SFSymbols7_0 | undefined; android?: "function" | "ios" | "android" | "web" | "join" | "shift" | "sort" | "map" | "filter" | "elevation" | ... 4045 more ... | undefined; web?: "function" | ... 4054 more ... | undefined; }'.

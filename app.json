@@ -1,23 +1,34 @@
 {
   "expo": {
-    "name": "P23TRACKR",
-    "slug": "P23TRACKR",
+    "name": "P23TRACK",
+    "slug": "P23TRACK",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "p23trackr",
+    "scheme": "p23track",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "infoPlist": {
+        "NSUserNotificationUsageDescription": "P23TRACK sends you a daily reminder so you never break your streak.",
+        "NSPhotoLibraryUsageDescription": "P23TRACK uses your photo library so you can set a custom profile avatar.",
+        "NSCameraUsageDescription": "P23TRACK uses your camera so you can take a photo for your profile avatar."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0a0a0f",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.SCHEDULE_EXACT_ALARM",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.READ_MEDIA_IMAGES"
+      ]
     },
     "web": {
       "output": "static",
@@ -28,11 +39,27 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#0a0a0f",
           "android": {
             "image": "./assets/images/splash-icon.png",
             "imageWidth": 76
           }
+        }
+      ],
+      "expo-sharing",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#D4537E",
+          "sounds": []
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "P23TRACK uses your photo library so you can set a custom profile avatar.",
+          "cameraPermission": "P23TRACK uses your camera so you can take a photo for your profile avatar."
         }
       ]
     ],
