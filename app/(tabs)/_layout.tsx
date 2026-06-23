@@ -1,13 +1,25 @@
-import { Tabs } from 'expo-router';
-import CustomTabBar from '../../src/components/layout/CustomTabBar';
+import { Stack } from 'expo-router';
+import BottomNav from '../../src/components/BottomNav';
+import { View, StyleSheet } from 'react-native';
+import { p23 } from '../../src/constants/theme';
 
-export default function TabLayout() {
+export default function TabsLayout() {
   return (
-    <Tabs tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{ headerShown: false }}>
-      <Tabs.Screen name="index"   options={{ title: 'Today'   }} />
-      <Tabs.Screen name="stats"   options={{ title: 'Stats'   }} />
-      <Tabs.Screen name="history" options={{ title: 'History' }} />
-      <Tabs.Screen name="profile" options={{ title: 'Profile' }} />
-    </Tabs>
+    <View style={styles.container}>
+      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: p23.void } }}>
+        <Stack.Screen name="dashboard" />
+        <Stack.Screen name="daily-log" />
+        <Stack.Screen name="badges" />
+        <Stack.Screen name="profile" />
+      </Stack>
+      <BottomNav />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: p23.void,
+  }
+});
