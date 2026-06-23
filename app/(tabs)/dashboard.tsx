@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { format } from 'date-fns';
 import { p23 } from '../../src/constants/theme';
 import { useTrackrStore } from '../../src/store/trackrStore';
@@ -33,7 +34,7 @@ export default function Dashboard() {
   if (!user) return null;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.header}>
           <View>
@@ -103,7 +104,7 @@ export default function Dashboard() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: p23.void },
-  scroll: { padding: 20, paddingBottom: 120 },
+  scroll: { padding: 20, paddingBottom: 100 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 },
   dateLabel: { color: p23.muted, fontSize: 12, letterSpacing: 2, fontFamily: 'DMSans-Regular' },
   greeting: { color: p23.text, fontSize: 24, fontFamily: 'SpaceGrotesk-Bold', marginTop: 4 },

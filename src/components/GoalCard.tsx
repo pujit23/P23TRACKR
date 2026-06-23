@@ -3,7 +3,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { p23 } from '../constants/theme';
-import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, withTiming, useSharedValue } from 'react-native-reanimated';
 
 interface GoalCardProps {
   id: string;
@@ -18,9 +18,21 @@ interface GoalCardProps {
 }
 
 export default function GoalCard({ id, title, category, streak, target, progress, xpReward, done, onComplete }: GoalCardProps) {
+  const progressAnim = useSharedValue(0);
+
+  React.useEffect(() => {
+    progressAnim.value = withTiming(progress, { duration: 600 });
+  }, [progress]);
+
   const animatedProgressStyle = useAnimatedStyle(() => {
     return {
-      width: withTiming(`${progress}%`, { duration: 600 }),
+      flex: progressAnim.value / 100,
+    };
+  });
+  
+  const spacerStyle = useAnimatedStyle(() => {
+    return {
+      flex: (100 - progressAnim.value) / 100,
     };
   });
 
@@ -53,10 +65,11 @@ export default function GoalCard({ id, title, category, streak, target, progress
         </View>
       </View>
 
-      <View style={styles.progressBarBg}>
+      <View style={[styles.progressBarBg, { flexDirection: 'row' }]}>
         <Animated.View style={[styles.progressBarFill, animatedProgressStyle]}>
           <LinearGradient colors={p23.gradients.progress as any} start={{x:0, y:0}} end={{x:1, y:0}} style={StyleSheet.absoluteFill as any} />
         </Animated.View>
+        <Animated.View style={spacerStyle} />
       </View>
     </Pressable>
   );

@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView, Pressable, Alert } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable, Alert } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { p23 } from '../../src/constants/theme';
 import { useTrackrStore } from '../../src/store/trackrStore';
+import ActivityHeatmap from '../../src/components/ActivityHeatmap';
 import { getXPProgress } from '../../src/lib/xp';
 
 export default function Profile() {
   const router = useRouter();
-  const { user, badges, resetData } = useTrackrStore();
+  const { user, badges, goals, dailyLogs, resetData } = useTrackrStore();
 
   if (!user) return null;
 
@@ -26,7 +28,7 @@ export default function Profile() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.profileHeader}>
           <View style={styles.avatarLarge}>
@@ -71,10 +73,12 @@ export default function Profile() {
           </View>
         </View>
 
+        <ActivityHeatmap goals={goals} dailyLogs={dailyLogs} />
+
         <View style={styles.actionsCard}>
           <Text style={styles.sectionTitle}>Settings</Text>
           
-          <Pressable style={styles.actionRow} onPress={() => Alert.alert('Coming Soon', 'Goal editing will be available in the next update.')}>
+          <Pressable style={styles.actionRow} onPress={() => router.push('/edit-goals')}>
             <View style={styles.actionLeft}>
               <Feather name="target" size={20} color={p23.text} />
               <Text style={styles.actionText}>Edit Goals</Text>
@@ -98,7 +102,7 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: p23.void },
-  scroll: { padding: 20, paddingBottom: 120 },
+  scroll: { padding: 20, paddingBottom: 100 },
   profileHeader: { alignItems: 'center', marginBottom: 32, marginTop: 20 },
   avatarLarge: { width: 96, height: 96, borderRadius: 48, backgroundColor: p23.surface, borderWidth: 3, borderColor: p23.purple, alignItems: 'center', justifyContent: 'center', shadowColor: p23.purple, shadowRadius: 20, shadowOpacity: 0.6, marginBottom: 16 },
   name: { color: p23.text, fontSize: 32, fontFamily: 'SpaceGrotesk-Bold', marginBottom: 8 },

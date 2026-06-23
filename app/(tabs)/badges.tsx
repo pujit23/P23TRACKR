@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView, Pressable } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { p23 } from '../../src/constants/theme';
 import { useTrackrStore } from '../../src/store/trackrStore';
@@ -14,7 +15,7 @@ export default function Badges() {
   }, 0);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView edges={['top']} style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerTitleRow}>
           <View style={styles.trophyIcon}>
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   statsBar: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 16, backgroundColor: p23.surface, borderBottomWidth: 1, borderBottomColor: p23.border },
   statText: { color: p23.muted, fontSize: 12, fontWeight: 'bold', letterSpacing: 1 },
   statTextRight: { color: p23.purple, fontSize: 12, fontWeight: 'bold', letterSpacing: 1, textShadowColor: p23.purpleGlow, textShadowRadius: 8 },
-  scroll: { padding: 20, paddingBottom: 120 },
+  scroll: { padding: 20, paddingBottom: 100 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
   badgeCard: { width: '48%', borderRadius: 20, padding: 16, marginBottom: 16, alignItems: 'center', borderWidth: 1 },
   badgeLocked: { backgroundColor: 'rgba(10,10,10,0.9)', borderColor: p23.border },

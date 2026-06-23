@@ -22,8 +22,15 @@ export default function GoalRing({ percentage, size = 220, label, sublabel }: Go
   const pulse = useSharedValue(1);
 
   useEffect(() => {
-    progress.value = withDelay(200, withTiming(percentage / 100, { duration: 1200, easing: Easing.bezier(0.25, 0.1, 0.25, 1) }));
-    pulse.value = withRepeat(withTiming(1.1, { duration: 1500 }), -1, true);
+    progress.value = withDelay(200, withTiming(percentage / 100, { 
+      duration: 1200, 
+      easing: Easing.bezier(0.25, 0.1, 0.25, 1) 
+    }));
+    pulse.value = withRepeat(
+      withTiming(1.08, { duration: 2000, easing: Easing.inOut(Easing.ease) }),
+      -1,
+      true
+    );
   }, [percentage]);
 
   const animatedProps = useAnimatedProps(() => {
@@ -35,7 +42,7 @@ export default function GoalRing({ percentage, size = 220, label, sublabel }: Go
   const pulseStyle = useAnimatedStyle(() => {
     return {
       transform: [{ scale: pulse.value }],
-      opacity: 0.5 - (pulse.value - 1)
+      opacity: withTiming(0.3, { duration: 200 })
     };
   });
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, Href } from 'expo-router';
 import { useTrackrStore } from '../src/store/trackrStore';
 import { p23 } from '../src/constants/theme';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
@@ -53,7 +53,7 @@ export default function Onboarding() {
     }));
 
     await addGoals(newGoals);
-    router.replace('/(tabs)/dashboard' as any);
+    router.replace('/(tabs)/dashboard' as Href);
   };
 
   const toggleGoal = (id: string) => {

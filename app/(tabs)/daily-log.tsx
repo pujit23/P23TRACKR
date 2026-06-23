@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView, Pressable, TextInput } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { format } from 'date-fns';
 import { Feather } from '@expo/vector-icons';
@@ -56,7 +57,7 @@ export default function DailyLog() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView edges={['top']} style={styles.container}>
       <View style={styles.header}>
         <Pressable onPress={() => router.back()} style={styles.backBtn}>
           <Feather name="chevron-left" size={24} color={p23.text} />
@@ -155,7 +156,7 @@ export default function DailyLog() {
         </Pressable>
       </ScrollView>
 
-      <XPSplash show={xpSplash} amount={75} onDone={() => { setXpSplash(false); router.replace('/(tabs)/dashboard'); }} />
+      <XPSplash show={xpSplash} amount={75} onDone={() => setXpSplash(false)} />
     </SafeAreaView>
   );
 }
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   titleContainer: { alignItems: 'center' },
   title: { color: p23.text, fontSize: 20, fontFamily: 'SpaceGrotesk-Bold' },
   subtitle: { color: p23.muted, fontSize: 12 },
-  scroll: { padding: 20, paddingBottom: 120 },
+  scroll: { padding: 20, paddingBottom: 100 },
   card: { backgroundColor: p23.surface, borderRadius: 20, padding: 20, marginBottom: 16, borderWidth: 1, borderColor: p23.border },
   cardTitle: { color: p23.text, fontSize: 18, fontFamily: 'SpaceGrotesk-Bold', marginBottom: 16 },
   moodRow: { flexDirection: 'row', justifyContent: 'space-between' },
